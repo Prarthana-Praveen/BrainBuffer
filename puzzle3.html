@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Serenity Quest</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-box {
+    background: rgba(255, 255, 255, 0.92);
+    width: 450px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.question {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.options label {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.submit {
+    background-color: #27ae60;
+    color: white;
+}
+
+.quit {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.result {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="game-box">
+    <h1>🌿 Serenity Quest</h1>
+
+    <div class="info">
+        <span id="level">Level: 1 / 5</span>
+        <span id="score">Score: 0</span>
+    </div>
+
+    <div class="question" id="question"></div>
+
+    <div class="options" id="options"></div>
+
+    <button class="submit" onclick="submitAnswer()">Submit</button>
+    <button class="quit" onclick="quitGame()">Quit</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+const puzzles = [
+    {
+        question: "Which color is most commonly associated with calmness?",
+        options: ["Red", "Blue", "Orange"],
+        answer: "Blue"
+    },
+    {
+        question: "Which sound is generally calming?",
+        options: ["Ocean waves", "Car horns", "Alarm clock"],
+        answer: "Ocean waves"
+    },
+    {
+        question: "Which activity helps relax the mind?",
+        options: ["Deep breathing", "Overthinking", "Rushing"],
+        answer: "Deep breathing"
+    },
+    {
+        question: "Which place feels the most peaceful?",
+        options: ["Crowded market", "Quiet forest", "Busy road"],
+        answer: "Quiet forest"
+    },
+    {
+        question: "Which habit improves mental calm?",
+        options: ["Mindfulness", "Multitasking", "Skipping sleep"],
+        answer: "Mindfulness"
+    }
+];
+
+let currentLevel = 0;
+let score = 0;
+let attempts = 0;
+
+function loadLevel() {
+    document.getElementById("level").innerText =
+        `Level: ${currentLevel + 1} / 5`;
+    document.getElementById("question").innerText =
+        puzzles[currentLevel].question;
+
+    const optionsDiv = document.getElementById("options");
+    optionsDiv.innerHTML = "";
+
+    puzzles[currentLevel].options.forEach(option => {
+        optionsDiv.innerHTML += `
+            <label>
+                <input type="radio" name="answer" value="${option}">
+                ${option}
+            </label>
+        `;
+    });
+
+    document.getElementById("result").innerText = "";
+}
+
+function submitAnswer() {
+    const selected =
+        document.querySelector('input[name="answer"]:checked');
+
+    if (!selected) {
+        alert("Please select an answer 🌼");
+        return;
+    }
+
+    attempts++;
+
+    if (selected.value === puzzles[currentLevel].answer) {
+        score += 10;
+        document.getElementById("result").innerText =
+            "🌸 Correct! Take a calm breath...";
+        currentLevel++;
+    } else {
+        document.getElementById("result").innerText =
+            "🍃 Incorrect. Stay relaxed and try again.";
+    }
+
+    document.getElementById("score").innerText = "Score: " + score;
+
+    setTimeout(() => {
+        if (currentLevel < puzzles.length) {
+            loadLevel();
+        } else {
+            showFinalResult();
+        }
+    }, 1200);
+}
+
+function showFinalResult() {
+    const accuracy = Math.round((score / (attempts * 10)) * 100);
+
+    document.querySelector(".game-box").innerHTML = `
+        <h1>🎉 Congratulations!</h1>
+        <p>You completed Serenity Quest 🌿</p>
+        <p><strong>Total Score:</strong> ${score}</p>
+        <p><strong>Accuracy:</strong> ${accuracy}%</p>
+        <p>🧘 Your calm mind is your true achievement.</p>
+        <button class="quit" onclick="quitGame()">Exit</button>
+    `;
+}
+
+function quitGame() {
+    window.history.back();
+}
+
+loadLevel();
+</script>
+
+</body>
+</html>
+
+

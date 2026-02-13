@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BrainBuffer – Memory Flip</title>
+
+  <!-- Lora Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #81daf3, #f2f4f9, #7acfe4);
+      font-family: 'Lora', serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 75px);
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      width: 75px;
+      height: 75px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 12px;
+      font-size: 32px;
+      line-height: 75px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+
+    .matched {
+      background: #1660e0;
+      cursor: default;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🧠 Memory Flip</h1>
+  <p>Flip the cards gently and find matching pairs.</p>
+
+  <div class="grid" id="gameGrid"></div>
+
+  <br>
+  <button onclick="location.href='games.html'">⬅ Back to Games</button>
+
+  <script>
+    // 8 pairs = 16 cards
+    const emojis = [
+      '🌸','🌿','☁️','🌊','🍃','🌙','⭐','🌼',
+      '🌸','🌿','☁️','🌊','🍃','🌙','⭐','🌼'
+    ];
+
+    let firstCard = null;
+    let lockBoard = false;
+
+    // Shuffle cards every load
+    emojis.sort(() => Math.random() - 0.5);
+
+    const grid = document.getElementById("gameGrid");
+
+    emojis.forEach(symbol => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.textContent = "❓";
+
+      card.onclick = () => {
+        if (lockBoard || card.classList.contains("matched") || card === firstCard) {
+          return;
+        }
+
+        card.textContent = symbol;
+
+        if (!firstCard) {
+          firstCard = card;
+        } else {
+          lockBoard = true;
+
+          if (firstCard.textContent === symbol) {
+            firstCard.classList.add("matched");
+            card.classList.add("matched");
+            firstCard = null;
+            lockBoard = false;
+          } else {
+            setTimeout(() => {
+              firstCard.textContent = "❓";
+              card.textContent = "❓";
+              firstCard = null;
+              lockBoard = false;
+            }, 900);
+          }
+        }
+      };
+
+      grid.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>

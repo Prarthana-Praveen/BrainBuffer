@@ -12,3 +12,45 @@ body {
   margin: 20px auto;
   position: relative;
 }
+/* CALMMATE CHAT WIDGET */
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2ecc71;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  font-weight: bold;
+  z-index: 1000;
+}
+
+#chat-box {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 350px;
+  height: 450px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+#chat-header {
+  background: #2ecc71;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#chat-header span {
+  float: right;
+  cursor: pointer;
+}

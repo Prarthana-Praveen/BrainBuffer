@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BrainBuffer – Mood Colors</title>
+
+  <!-- Lora Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #81daf3, #f2f4f9, #2560b9);
+      font-family: 'Lora', serif;
+      text-align: center;
+      padding: 30px;
+      transition: background 1s ease;
+    }
+
+    .box {
+      max-width: 400px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🎨 Mood Colors</h1>
+  <p>Let colours gently guide your emotions</p>
+
+  <div class="box">
+    <p id="moodText">
+      Click the button to receive a calming color.
+    </p>
+
+    <button onclick="changeMood()">Change Mood</button>
+  </div>
+
+  <br>
+  <button onclick="location.href='games.html'">⬅ Back to Games</button>
+
+  <script>
+    function changeMood() {
+      const moods = [
+        { color: "#a8edea", text: "Calm & Peaceful 🌊" },
+        { color: "#d9afd9", text: "Soft & Relaxed 🌸" },
+        { color: "#96e6a1", text: "Fresh & Balanced 🌿" },
+        { color: "#fbc2eb", text: "Warm & Comforting ☀️" }
+      ];
+
+      const randomMood = moods[Math.floor(Math.random() * moods.length)];
+
+      document.body.style.background = randomMood.color;
+      document.getElementById("moodText").innerText =
+        "Your mood color: " + randomMood.text;
+    }
+  </script>
+
+</body>
+</html>

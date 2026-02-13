@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BrainBuffer | Puzzles</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:'Lora',serif;
+  background:url("images/puzzle.jpg") center/cover no-repeat;
+}
+
+.overlay{
+  min-height:100vh;
+  background:rgba(255,255,255,0.75);
+  padding:30px;
+  text-align:center;
+}
+
+.puzzle-grid{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.puzzle-box{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+button{
+  margin-top:15px;
+  padding:8px 18px;
+  border:none;
+  border-radius:20px;
+  background:#81daf3;
+  font-family:'Lora',serif;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+<h1>🧩 Calm Mind Puzzles</h1>
+<p>Select a puzzle. No rush. Enjoy the calm.</p>
+
+<div class="puzzle-grid">
+
+<div class="puzzle-box">
+<h3>Number Flow</h3>
+<p>Find the missing number by observing the pattern.</p>
+<a href="puzzle1.html"><button>Start</button></a>
+</div>
+
+<div class="puzzle-box">
+<h3>Mind Riddle</h3>
+<p>Read slowly and think gently before answering.</p>
+<a href="puzzle2.html"><button>Start</button></a>
+</div>
+
+<div class="puzzle-box">
+<h3>Serenity Quest </h3>
+<p>Serenity Quest is a gentle, non-stress puzzle game designed to calm the mind, encourage mindfulness, and guide players through peaceful levels that promote relaxation and mental clarity..</p>
+<a href="puzzle3.html"><button>Start</button></a>
+</div>
+
+</div>
+
+<br>
+<button onclick="history.back()">← Back</button>
+</div>
+</body>
+</html>

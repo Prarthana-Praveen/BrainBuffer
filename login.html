@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login | BrainBuffer</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg, #81daf3, #76f7a7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  background: white;
+  padding: 30px;
+  width: 320px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+}
+
+button {
+  background: #2ecc71;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+  <h2>Login</h2>
+  <input type="text" placeholder="Username" required>
+  <input type="password" placeholder="Password" required>
+  <button onclick="login()">Login</button>
+</div>
+
+<script>
+function login() {
+  // frontend login simulation
+  localStorage.setItem("isLoggedIn", "true");
+  window.location.href = "consultation.html";
+}
+</script>
+
+</body>
+</html>

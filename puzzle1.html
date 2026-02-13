@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pattern Recognition | BrainBuffer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  background:url("images/puzzle.jpg") center/cover no-repeat;
+  font-family:'Lora',serif;
+}
+.overlay{
+  min-height:100vh;
+  background:rgba(255,255,255,0.75);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+.pattern{
+  font-size:26px;
+  margin:15px 0;
+}
+input{
+  padding:10px;
+  border-radius:12px;
+  border:1px solid #aaa;
+  width:200px;
+  text-align:center;
+}
+button{
+  margin-top:12px;
+  padding:8px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ffd6a5;
+  font-family:'Lora',serif;
+  cursor:pointer;
+}
+#msg{
+  margin-top:15px;
+  font-size:18px;
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+
+<h2 id="levelTitle">Level 1</h2>
+<p class="pattern" id="pattern">2, 4, 6, 8, ?</p>
+
+<input id="answer" placeholder="Your answer">
+<button onclick="checkAnswer()">Submit</button>
+
+<p id="msg"></p>
+
+<button onclick="location.href='puzzles.html'">← Back</button>
+
+</div>
+
+<script>
+let level = 1;
+
+function checkAnswer(){
+  const ans = document.getElementById("answer").value.trim();
+  const msg = document.getElementById("msg");
+
+  if(level === 1 && ans === "10"){
+    level = 2;
+    document.getElementById("levelTitle").innerText = "Level 2";
+    document.getElementById("pattern").innerText = "1, 1, 2, 3, 5, ?";
+    document.getElementById("answer").value = "";
+    msg.innerText = "Nice 🌿 Pattern understood. Continue calmly...";
+  }
+  else if(level === 2 && ans === "8"){
+    msg.innerText = "✨ Excellent! Pattern puzzle completed peacefully.";
+  }
+  else{
+    msg.innerText = "Slow down… observe the pattern again 💭";
+  }
+}
+</script>
+
+</body>
+</html>

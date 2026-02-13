@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Doctor Consultation | BrainBuffer</title>
+
+<!-- 🔐 LOGIN CHECK -->
+<script>
+if (localStorage.getItem("isLoggedIn") !== "true") {
+  window.location.href = "login.html";
+}
+</script>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #e0f7fa;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  background: #2ecc71;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>🩺 Doctor Consultation</h2>
+
+  <form onsubmit="bookAppointment(event)">
+    <label>Name</label>
+    <input type="text" required>
+
+    <label>Email</label>
+    <input type="email" required>
+
+    <label>Select Doctor</label>
+    <select required>
+      <option>Dr. Ananya Rao – Psychologist</option>
+      <option>Dr. Rahul Mehta – Psychiatrist</option>
+      <option>Dr. Neha Iyer – Wellness Coach</option>
+    </select>
+
+    <label>Date</label>
+    <input type="date" required>
+
+    <label>Time</label>
+    <input type="time" required>
+
+    <label>Concern</label>
+    <textarea rows="4" required></textarea>
+
+    <button type="submit">Book Appointment</button>
+  </form>
+
+  <p id="msg"></p>
+</div>
+
+<script>
+function bookAppointment(e) {
+  e.preventDefault();
+  document.getElementById("msg").innerText =
+    "🌿 Appointment booked successfully!";
+}
+</script>
+
+</body>
+</html>
