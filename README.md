@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./img.png" alt="Project Banner" width="100%">
+  <img width="1280" height="640" alt="img" src="https://github.com/user-attachments/assets/01ad6582-58dd-4f1e-9fdc-51d43c38145a" />
 </p>
 
 # [Project Name] 🎯
