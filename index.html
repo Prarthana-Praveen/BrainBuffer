@@ -11,7 +11,7 @@
     body {
       margin: 0;
       font-family: 'Lora', serif;
-      background: linear-gradient(135deg, #81daf3, #f2f4f9, #76f7a7);
+      background: linear-gradient(135deg, #81daf3, #f2f4f9, #76caf7);
     }
 
     /* 🔹 NAVBAR */
@@ -143,6 +143,10 @@
     <h2>BrainBuffer</h2>
     <div class="nav-links">
       <a href="aboutus.html">About Us</a>
+      <button onclick="handleLoginLogoutLabel">
+        <!-- <a href="login.html">Login</a> -->
+         Login
+      </button>
       <a href="login.html">Login</a>
     </div>
   </div>
@@ -176,7 +180,7 @@
     <div class="option-box">
       <h3>Breathing Exercise</h3>
       <p>Slow breathing for instant relaxation.</p>
-      <a href="zen.html"><button>Start</button></a>
+      <a href="breathing.html"><button>Start</button></a>
     </div>
     <div class="option-box">
       <h3>Consultation</h3>
@@ -199,7 +203,7 @@
       CalmMate 🌿
       <span onclick="toggleChat()">✖</span>
     </div>
-    <iframe src="ai_chatbox.html" style="border:none;width:100%;height:100%;"></iframe>
+    <iframe src="ai_chatbot.html" style="border:none;width:100%;height:100%;"></iframe>
   </div>
 
   <script>
@@ -212,18 +216,38 @@
   <script>
 function openConsultation() {
   if (localStorage.getItem("isLoggedIn") === "true") {
+    // User is already logged in → go directly
     window.location.href = "consultation.html";
   } else {
+    // Save the page they want to go to after login
+    // localStorage.setItem("redirectAfterLogin", "consultation.html");
+    // localStorage.setItem("isLoggedIn", "true");
     window.location.href = "login.html";
   }
 }
 
+
+
 function logout() {
-  localStorage.removeItem("isLoggedIn");
+  // localStorage.removeItem("isLoggedIn");
+    localStorage.setItem("isLoggedIn", "false");
   alert("Logged out successfully");
   window.location.href = "login.html";
 }
+
+function handleLoginLogoutLabel(){
+  console.log("Log out clicked")
+  if(localStorage.getItem("isLoggedIn") === "true"){
+    console.log("Log out clicked")
+    logout()
+  }
+  else{
+    window.location.href = "login.html";
+  }
+}
+
 </script>
+
 
 
 </body>
