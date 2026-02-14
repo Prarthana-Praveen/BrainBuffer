@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Doctor Consultation | BrainBuffer</title>
-
+<!-- 🔐 LOGIN CHECK -->
 <!-- 🔐 LOGIN CHECK -->
 <script>
 if (localStorage.getItem("isLoggedIn") !== "true") {
+  localStorage.setItem("redirectAfterLogin", "consultation.html");
   window.location.href = "login.html";
 }
 </script>
+
+
 
 <style>
 body {
@@ -92,6 +93,17 @@ function bookAppointment(e) {
     "🌿 Appointment booked successfully!";
 }
 </script>
+<script>
+function openConsultation() {
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    window.location.href = "consultation.html";
+  } else {
+    localStorage.setItem("redirectAfterLogin", "consultation.html");
+    window.location.href = "login.html";
+  }
+}
+</script>
+
 
 </body>
 </html>
