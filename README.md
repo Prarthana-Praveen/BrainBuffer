@@ -48,6 +48,9 @@ this shows the login page
 ## Architecture
 <img width="326" height="314" alt="image" src="https://github.com/user-attachments/assets/400cb7d6-e21f-42b7-bf3e-81922fc763f2" />
 this is the architecture of BrainBuffer.this includes the feautures for stress relief like games, puzzles, quotes,breathing exercise, and doctor consultation. 
+## Workflow
+<img width="254" height="332" alt="image" src="https://github.com/user-attachments/assets/d0be8599-0b7f-41e6-93b7-df36b4ee132f" />
+This is the workflow of how user interacts with the site. the user can access, games, puzzles, breathing exercises, motivational quotes. Also they can get an appointment with the doctor. 
 
 
 
