@@ -38,6 +38,18 @@ List the key features of your project:
 - **Zen Garden:** A virtual zen garden to help users relax and focus.
 
 ---
+## Project Documentation
+<img width="924" height="421" alt="image" src="https://github.com/user-attachments/assets/7f499697-7103-4b6b-94e3-a156d460299a" />
+The screenshot shows the image pf the home screen.
+<img width="316" height="406" alt="image" src="https://github.com/user-attachments/assets/81598660-793c-46d2-b5bc-e3525135d3de" />
+The image shows the chatbot.
+<img width="308" height="285" alt="image" src="https://github.com/user-attachments/assets/1c7eea8e-f425-4c5f-9376-dfd635e86578" />
+this shows the login page 
+## Architecture
+<img width="326" height="314" alt="image" src="https://github.com/user-attachments/assets/400cb7d6-e21f-42b7-bf3e-81922fc763f2" />
+this is the architecture of BrainBuffer.this includes the feautures for stress relief like games, puzzles, quotes,breathing exercise, and doctor consultation. 
+
+
 
 ## Implementation
 
